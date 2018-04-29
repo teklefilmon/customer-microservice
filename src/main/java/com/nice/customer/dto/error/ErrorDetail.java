@@ -1,4 +1,4 @@
-package com.nice.dto.error;
+package com.nice.customer.dto.error;
 
 
 import java.util.HashMap;

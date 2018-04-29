@@ -1,4 +1,4 @@
-package com.nice.exception.handler;
+package com.nice.customer.exception.handler;
 
 import java.util.Date;
 
@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import com.nice.dto.error.ErrorDetail;
-import com.nice.exception.UserNotFoundException;
-import com.nice.exception.UsernameTakenException;
+import com.nice.customer.dto.error.ErrorDetail;
+import com.nice.customer.exception.UserNotFoundException;
+import com.nice.customer.exception.UsernameTakenException;
 
 
 @RestControllerAdvice
@@ -24,7 +24,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
 		ErrorDetail errorDetail = new ErrorDetail();
 		errorDetail.setTimeStamp(new Date().getTime());
 		errorDetail.setStatus(HttpStatus.NOT_FOUND.value());
-		errorDetail.setTitle("User Not Found");
+		errorDetail.setTitle("Customer Not Found");
 		errorDetail.setDetail(rnfe.getMessage());
 		errorDetail.setDeveloperMessage(rnfe.getClass().getName());
 		return new ResponseEntity<>(errorDetail, null, HttpStatus.NOT_FOUND);

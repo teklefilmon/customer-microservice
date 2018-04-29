@@ -1,4 +1,4 @@
-package com.nice.domain;
+package com.nice.customer.domain;
 
 import java.util.Objects;
 
@@ -11,8 +11,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.Email;
 
 @Entity
-@Table(name="USERS")
-public class User {
+@Table(name="CUSTOMERS")
+public class Customer {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -28,9 +28,9 @@ public class User {
 	@Column(name = "USERNAME", unique = true)
 	private String userName;
 	
-	protected User() {}
+	protected Customer() {}
 
-	public User(String firstName, String lastName, String email, String userName) {
+	public Customer(String firstName, String lastName, String email, String userName) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -38,13 +38,13 @@ public class User {
 		this.userName = userName;
 	}
 
-	public static User of(User user){
-		Objects.requireNonNull(user, "User must not be null");
-		return new User(user.firstName, user.lastName, user.email, user.userName);
+	public static Customer of(Customer customer){
+		Objects.requireNonNull(customer, "Customer must not be null");
+		return new Customer(customer.firstName, customer.lastName, customer.email, customer.userName);
 	}
 	
-	public static User of(String firstName, String lastName, String email, String userName){
-		return new User(firstName, lastName, email, userName);
+	public static Customer of(String firstName, String lastName, String email, String userName){
+		return new Customer(firstName, lastName, email, userName);
 	}
 	
 	public Long getId() {
@@ -99,8 +99,8 @@ public class User {
 		if (other == null || getClass() != other.getClass())
 			return false;
 
-		User user = (User) other;
-		return Objects.equals(this.userName, user.userName);
+		Customer customer = (Customer) other;
+		return Objects.equals(this.userName, customer.userName);
 	}
 
 }

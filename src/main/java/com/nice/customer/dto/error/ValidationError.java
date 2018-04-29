@@ -1,4 +1,4 @@
-package com.nice.dto.error;
+package com.nice.customer.dto.error;
 
 public class ValidationError {
 	

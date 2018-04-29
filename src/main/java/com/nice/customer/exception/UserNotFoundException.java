@@ -1,4 +1,4 @@
-package com.nice.exception;
+package com.nice.customer.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

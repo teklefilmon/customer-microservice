@@ -1,4 +1,4 @@
-package com.nice.controller;
+package com.nice.customer.controller;
 
 import java.net.URI;
 import java.util.List;
@@ -18,39 +18,39 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.nice.domain.User;
-import com.nice.service.UserService;
+import com.nice.customer.domain.Customer;
+import com.nice.customer.service.CustomerService;
 
 @RestController
-public class UserController {
+public class CustomerController {
 
-	private UserService userService;
+	private CustomerService customerService;
 
-	public UserController(UserService service) {
-		Objects.requireNonNull(service, "UserService is required for the class to function");
-		this.userService = service;
+	public CustomerController(CustomerService service) {
+		Objects.requireNonNull(service, "CustomerService is required for the class to function");
+		this.customerService = service;
 	}
 
-	@GetMapping(value = "/users/{idOrUsername}")
-	ResponseEntity<User> getUser(@PathVariable String idOrUsername) {
-		User user = null;
+	@GetMapping(value = "/customers/{idOrUsername}")
+	ResponseEntity<Customer> getUser(@PathVariable String idOrUsername) {
+		Customer customer = null;
 		try {
 			Long id = Long.parseLong(idOrUsername);
-			user = userService.findOne(id);
+			customer = customerService.findOne(id);
 		} catch (NumberFormatException exception) {
-			user = userService.findOne(idOrUsername);
+			customer = customerService.findOne(idOrUsername);
 		}
-		return new ResponseEntity<>(user, HttpStatus.OK);
+		return new ResponseEntity<>(customer, HttpStatus.OK);
 	}
 	
-	@GetMapping(value = "/users")
-	ResponseEntity<List<User>> getAllUsers() {
-		return new ResponseEntity<>(userService.findAll(), HttpStatus.OK);
+	@GetMapping(value = "/customers")
+	ResponseEntity<List<Customer>> getAllUsers() {
+		return new ResponseEntity<>(customerService.findAll(), HttpStatus.OK);
 	}
 
-	@PostMapping(value="/users")
-	ResponseEntity<Void> createUser(@Valid @RequestBody User user){
-		User newUser = userService.create(user);
+	@PostMapping(value="/customers")
+	ResponseEntity<Void> createUser(@Valid @RequestBody Customer customer){
+		Customer newUser = customerService.create(customer);
         HttpHeaders responseHeaders = new HttpHeaders();
         URI newUserUri = ServletUriComponentsBuilder
                 .fromCurrentRequest().path("/{id}")
@@ -60,15 +60,15 @@ public class UserController {
         return new ResponseEntity<>(null, responseHeaders, HttpStatus.CREATED);
 	}
 	
-	@PutMapping(value="/users/{id}")
-	ResponseEntity<Void> updateUser(@PathVariable Long id, @RequestBody @Valid User user) {
-		userService.update(id, user);
+	@PutMapping(value="/customers/{id}")
+	ResponseEntity<Void> updateUser(@PathVariable Long id, @RequestBody @Valid Customer customer) {
+		customerService.update(id, customer);
 		return new ResponseEntity<>(null, HttpStatus.OK);
 	}
 	
-	@DeleteMapping(value="/users/{id}")
+	@DeleteMapping(value="/customers/{id}")
 	ResponseEntity<Void> deleteUser(@PathVariable Long id) {
-		userService.delete(id);
+		customerService.delete(id);
 		return new ResponseEntity<>(null, HttpStatus.NO_CONTENT);
 	}
 }
