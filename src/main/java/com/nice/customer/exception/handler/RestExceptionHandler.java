@@ -11,15 +11,15 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import com.nice.customer.dto.error.ErrorDetail;
-import com.nice.customer.exception.UserNotFoundException;
+import com.nice.customer.exception.CustomerNotFoundException;
 import com.nice.customer.exception.UsernameTakenException;
 
 
 @RestControllerAdvice
 public class RestExceptionHandler extends ResponseEntityExceptionHandler {
 	
-	@ExceptionHandler(UserNotFoundException.class)
-	public ResponseEntity<ErrorDetail> handleResourceNotFoundException(UserNotFoundException rnfe,
+	@ExceptionHandler(CustomerNotFoundException.class)
+	public ResponseEntity<ErrorDetail> handleResourceNotFoundException(CustomerNotFoundException rnfe,
 			HttpServletRequest request) {
 		ErrorDetail errorDetail = new ErrorDetail();
 		errorDetail.setTimeStamp(new Date().getTime());

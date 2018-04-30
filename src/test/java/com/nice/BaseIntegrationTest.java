@@ -7,7 +7,7 @@ import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.nice.customer.CustomerApplication;
+import com.nice.customer.CustomerMicroserviceApplication;
 
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
@@ -15,7 +15,7 @@ import io.restassured.specification.RequestSpecification;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(
-        classes = CustomerApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT
+        classes = CustomerMicroserviceApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT
 )
 @Sql(value = "classpath:integration-test.sql", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
 @Sql(value = "classpath:cleanup.sql", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)

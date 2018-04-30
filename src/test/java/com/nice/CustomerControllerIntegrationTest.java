@@ -1,8 +1,8 @@
 package com.nice;
 
+import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
-import static io.restassured.RestAssured.*;
 import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
@@ -32,6 +32,7 @@ public class CustomerControllerIntegrationTest extends BaseIntegrationTest{
 	
 	@Test
 	public void getCustomer_whenCustomerIdExist_shouldReturnOK() {
+		
 		Customer customer = given()
 			.spec(spec)
 			.port(port)

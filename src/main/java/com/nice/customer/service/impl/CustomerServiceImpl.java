@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
 import com.nice.customer.domain.Customer;
-import com.nice.customer.exception.UserNotFoundException;
+import com.nice.customer.exception.CustomerNotFoundException;
 import com.nice.customer.exception.UsernameTakenException;
 import com.nice.customer.repository.CustomerRepository;
 import com.nice.customer.service.CustomerService;
@@ -37,7 +37,7 @@ public class CustomerServiceImpl implements CustomerService {
 			return customer.get();
 		}
 		logger.error(String.format("Customer with id %s not found", id));
-		throw new UserNotFoundException(String.format("Customer with id %s not found", id));
+		throw new CustomerNotFoundException(String.format("Customer with id %s not found", id));
 	}
 
 	@Override
@@ -49,7 +49,7 @@ public class CustomerServiceImpl implements CustomerService {
 			return customer.get();
 		}
 		logger.error(String.format("Customer with username %s not found", username));
-		throw new UserNotFoundException(String.format("Customer with username %s not found", username));
+		throw new CustomerNotFoundException(String.format("Customer with username %s not found", username));
 	}
 
 	@Override
@@ -64,7 +64,7 @@ public class CustomerServiceImpl implements CustomerService {
 			logger.info(String.format("Checking if username %s is available", username));
 			findOne(username);
 			throw new UsernameTakenException(String.format("Username %s already taken", username));
-		} catch(UserNotFoundException exception) {
+		} catch(CustomerNotFoundException exception) {
 			Customer persistedUser = repository.save(customer);
 			logger.info("Customer saved");
 			return persistedUser;
