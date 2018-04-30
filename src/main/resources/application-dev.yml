@@ -5,7 +5,7 @@ spring:
     name: nice-customer-microservice
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:mysql://localhost:3306/messenger
+    url: jdbc:mysql://localhost:3306/customers
     username: root
     password: root
     hikari:
