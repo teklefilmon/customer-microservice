@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.nice.customer.domain.Customer;
 
 @Repository
-public interface CustomerRepository extends JpaRepository<Customer, Long> {
-	Optional<Customer> findByUserName(String username);
+public interface CustomerRepository extends JpaRepository<Customer, Long>
+{
+    Optional<Customer> findByUserName(String username);
 }

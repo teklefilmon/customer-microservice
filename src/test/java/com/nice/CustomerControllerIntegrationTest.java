@@ -17,7 +17,8 @@ public class CustomerControllerIntegrationTest extends BaseIntegrationTest{
 	private int port;
 	
 	@Test
-	public void getCustomer_whenCustomerIdNotExist_shouldReturnNotFound() {
+	public void getCustomer_whenCustomerIdNotExist_shouldReturnNotFound() 
+	{
 		given()
 			.spec(spec)
 			.port(port)
@@ -31,7 +32,8 @@ public class CustomerControllerIntegrationTest extends BaseIntegrationTest{
 	}
 	
 	@Test
-	public void getCustomer_whenCustomerIdExist_shouldReturnOK() {
+	public void getCustomer_whenCustomerIdExist_shouldReturnOK() 
+	{
 		
 		Customer customer = given()
 			.spec(spec)
@@ -51,7 +53,8 @@ public class CustomerControllerIntegrationTest extends BaseIntegrationTest{
 	}
 	
 	@Test
-	public void getCustomer_whenCustomerNameNotExist_shouldReturnNotFound() {
+	public void getCustomer_whenCustomerNameNotExist_shouldReturnNotFound() 
+	{
 		given()
 			.spec(spec)
 			.port(port)
@@ -63,7 +66,8 @@ public class CustomerControllerIntegrationTest extends BaseIntegrationTest{
 	}
 	
 	@Test
-	public void getCustomer_whenCustomerNameExist_shouldReturnOK() {
+	public void getCustomer_whenCustomerNameExist_shouldReturnOK() 
+	{
 		Customer customer = given()
 			.spec(spec)
 			.port(port)
@@ -82,7 +86,8 @@ public class CustomerControllerIntegrationTest extends BaseIntegrationTest{
 	}
 	
 	@Test
-	public void getAllCustomers_shouldReturnOK() {
+	public void getAllCustomers_shouldReturnOK() 
+	{
 		given()
 			.spec(spec)
 			.port(port)
@@ -94,7 +99,8 @@ public class CustomerControllerIntegrationTest extends BaseIntegrationTest{
 	}
 	
 	@Test
-	public void createCustomer_shouldReturnCreated() {
+	public void createCustomer_shouldReturnCreated() 
+	{
 		Customer customer = new Customer("Ryan", "Owen", "ryan.owen@nice.com", "ryan.owen");
 		String location = given()
 			.spec(spec)
@@ -110,7 +116,8 @@ public class CustomerControllerIntegrationTest extends BaseIntegrationTest{
 	}
 	
 	@Test
-	public void updateCustomer_whenCustomerIdNotExist_shouldReturnNotFound() {
+	public void updateCustomer_whenCustomerIdNotExist_shouldReturnNotFound() 
+	{
 		Customer customer = new Customer("Ryan", "Owen", "ryan.owen@nice.com", "ryan.owen");
 		given()
 			.spec(spec)

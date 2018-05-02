@@ -1,11 +1,11 @@
 package com.nice.customer.dto.error;
 
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ErrorDetail {
+public class ErrorDetail
+{
 
     private String title;
     private int status;
@@ -14,40 +14,63 @@ public class ErrorDetail {
     private String developerMessage;
     private Map<String, List<ValidationError>> errors = new HashMap<>();
 
-    public String getTitle() {
+    public String getTitle()
+    {
         return title;
     }
-    public void setTitle(String title) {
+
+    public void setTitle(String title)
+    {
         this.title = title;
     }
-    public int getStatus() {
+
+    public int getStatus()
+    {
         return status;
     }
-    public void setStatus(int status) {
+
+    public void setStatus(int status)
+    {
         this.status = status;
     }
-    public String getDetail() {
+
+    public String getDetail()
+    {
         return detail;
     }
-    public void setDetail(String detail) {
+
+    public void setDetail(String detail)
+    {
         this.detail = detail;
     }
-    public long getTimeStamp() {
+
+    public long getTimeStamp()
+    {
         return timeStamp;
     }
-    public void setTimeStamp(long timeStamp) {
+
+    public void setTimeStamp(long timeStamp)
+    {
         this.timeStamp = timeStamp;
     }
-    public String getDeveloperMessage() {
+
+    public String getDeveloperMessage()
+    {
         return developerMessage;
     }
-    public void setDeveloperMessage(String developerMessage) {
+
+    public void setDeveloperMessage(String developerMessage)
+    {
         this.developerMessage = developerMessage;
     }
-    public Map<String, List<ValidationError>> getErrors() {
+
+    public Map<String, List<ValidationError>> getErrors()
+    {
         return errors;
     }
-    public void setErrors(Map<String, List<ValidationError>> errors) {
+
+    public void setErrors(Map<String, List<ValidationError>> errors)
+    {
         this.errors = errors;
     }
 }

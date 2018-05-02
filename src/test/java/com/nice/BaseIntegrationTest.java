@@ -14,21 +14,21 @@ import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(
-        classes = CustomerMicroserviceApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT
-)
+@SpringBootTest(classes = CustomerMicroserviceApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @Sql(value = "classpath:integration-test.sql", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
 @Sql(value = "classpath:cleanup.sql", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
 @TestPropertySource(locations = "classpath:application-test.properties")
-public abstract class BaseIntegrationTest {
-	protected static RequestSpecification spec;
-	
-	@BeforeClass
-	public static void initSpec() {
-		spec = new RequestSpecBuilder()
-	            .setContentType(ContentType.JSON)
-	            .setAccept(ContentType.JSON)
-	            .setBaseUri("http://localhost")
-	            .build();
-	}
+public abstract class BaseIntegrationTest
+{
+    protected static RequestSpecification spec;
+
+    @BeforeClass
+    public static void initSpec()
+    {
+        spec = new RequestSpecBuilder()
+                .setContentType(ContentType.JSON)
+                .setAccept(ContentType.JSON)
+                .setBaseUri("http://localhost")
+                .build();
+    }
 }

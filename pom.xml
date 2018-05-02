@@ -8,7 +8,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>integration-test</name>
+	<name>customer-microservice</name>
 	<description>Demo project for restassured integration test</description>
 
 	<parent>

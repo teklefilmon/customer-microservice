@@ -14,32 +14,32 @@ import com.nice.customer.dto.error.ErrorDetail;
 import com.nice.customer.exception.CustomerNotFoundException;
 import com.nice.customer.exception.UsernameTakenException;
 
-
 @RestControllerAdvice
-public class RestExceptionHandler extends ResponseEntityExceptionHandler {
-	
-	@ExceptionHandler(CustomerNotFoundException.class)
-	public ResponseEntity<ErrorDetail> handleResourceNotFoundException(CustomerNotFoundException rnfe,
-			HttpServletRequest request) {
-		ErrorDetail errorDetail = new ErrorDetail();
-		errorDetail.setTimeStamp(new Date().getTime());
-		errorDetail.setStatus(HttpStatus.NOT_FOUND.value());
-		errorDetail.setTitle("Customer Not Found");
-		errorDetail.setDetail(rnfe.getMessage());
-		errorDetail.setDeveloperMessage(rnfe.getClass().getName());
-		return new ResponseEntity<>(errorDetail, null, HttpStatus.NOT_FOUND);
-	}
-	
-	@ExceptionHandler(UsernameTakenException.class)
-	public ResponseEntity<ErrorDetail> handleUserNameTakenException(UsernameTakenException rnfe,
-			HttpServletRequest request) {
-		ErrorDetail errorDetail = new ErrorDetail();
-		errorDetail.setTimeStamp(new Date().getTime());
-		errorDetail.setStatus(HttpStatus.UNPROCESSABLE_ENTITY.value());
-		errorDetail.setTitle("Username taken. Try another");
-		errorDetail.setDetail(rnfe.getMessage());
-		errorDetail.setDeveloperMessage(rnfe.getClass().getName());
-		return new ResponseEntity<>(errorDetail, null, HttpStatus.UNPROCESSABLE_ENTITY);
+public class RestExceptionHandler extends ResponseEntityExceptionHandler
+{
 
-	}
+    @ExceptionHandler(CustomerNotFoundException.class)
+    public ResponseEntity<ErrorDetail> handleResourceNotFoundException(CustomerNotFoundException rnfe, HttpServletRequest request)
+    {
+        ErrorDetail errorDetail = new ErrorDetail();
+        errorDetail.setTimeStamp(new Date().getTime());
+        errorDetail.setStatus(HttpStatus.NOT_FOUND.value());
+        errorDetail.setTitle("Customer Not Found");
+        errorDetail.setDetail(rnfe.getMessage());
+        errorDetail.setDeveloperMessage(rnfe.getClass().getName());
+        return new ResponseEntity<>(errorDetail, null, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(UsernameTakenException.class)
+    public ResponseEntity<ErrorDetail> handleUserNameTakenException(UsernameTakenException rnfe, HttpServletRequest request)
+    {
+        ErrorDetail errorDetail = new ErrorDetail();
+        errorDetail.setTimeStamp(new Date().getTime());
+        errorDetail.setStatus(HttpStatus.UNPROCESSABLE_ENTITY.value());
+        errorDetail.setTitle("Username taken. Try another");
+        errorDetail.setDetail(rnfe.getMessage());
+        errorDetail.setDeveloperMessage(rnfe.getClass().getName());
+        return new ResponseEntity<>(errorDetail, null, HttpStatus.UNPROCESSABLE_ENTITY);
+
+    }
 }
