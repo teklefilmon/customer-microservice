@@ -23,4 +23,4 @@ spring:
       hibernate.cache.use_second_level_cache: true
       hibernate.cache.use_query_cache: false
       hibernate.generate_statistics: false
-      hibernate.hbm2ddl.auto: create
+      hibernate.hbm2ddl.auto: validate
