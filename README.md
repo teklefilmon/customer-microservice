@@ -1,4 +1,4 @@
-Customer Microservice
+Customer Micro-service
 
 1. Execute the following sql queries to create the database in MySQL
 
